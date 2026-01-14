@@ -21,8 +21,7 @@ $colors: (
 	"bluegray": #5A707F,
 	"purple": #6758A2,
 	"red": #C00D0D,
-	"primary": $primaryColor
-) !default;
+	"primary": $primaryColor) !default;
 
 //reused color variables
 $shade000: #ffffff !default; //surface
@@ -37,7 +36,8 @@ $shade800: #585858 !default; //message text, highlight text
 $shade900: #3b3b3b !default; //unused
 
 //global
-$fontFamily: Poppins, sans-serif !default;
+$fontFamily: Poppins,
+	sans-serif !default;
 $fontSize: 1rem !default;
 $fontWeight: normal !default;
 $textColor: $shade700 !default;
@@ -45,10 +45,12 @@ $textSecondaryColor: $shade600 !default;
 $borderRadius: 8px !default;
 $transitionDuration: 0.3s !default;
 $formElementTransition: background-color $transitionDuration,
-	color $transitionDuration, border-color $transitionDuration,
+	color $transitionDuration,
+	border-color $transitionDuration,
 	box-shadow $transitionDuration !default;
 $actionIconTransition: background-color $transitionDuration,
-	color $transitionDuration, box-shadow $transitionDuration !default;
+	color $transitionDuration,
+	box-shadow $transitionDuration !default;
 $listItemTransition: box-shadow $transitionDuration !default;
 $primeIconFontSize: 1rem !default;
 $divider: 1px solid $shade300 !default;
@@ -126,7 +128,8 @@ $inputOverlayBg: $inputListBg !default;
 $inputOverlayHeaderBg: $inputListHeaderBg !default;
 $inputOverlayBorder: 0 none !default;
 $inputOverlayShadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
-	0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
+	0 4px 5px 0 rgba(0, 0, 0, 0.14),
+	0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
 
 //password
 $passwordMeterBg: $shade300 !default;
@@ -148,7 +151,8 @@ $buttonActiveBg: $primaryDarkerColor !default;
 $buttonTextActiveColor: $primaryTextColor !default;
 $buttonActiveBorderColor: $primaryDarkerColor !default;
 $raisedButtonShadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-	0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
+	0 2px 2px 0 rgba(0, 0, 0, 0.14),
+	0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
 $roundedButtonBorderRadius: $borderRadius !default;
 
 $textButtonHoverBgOpacity: 0.04 !default;
@@ -161,42 +165,29 @@ $plainButtonActiveBgColor: $shade300 !default;
 $secondaryButtonBg: #8191a6 !default;
 $secondaryButtonTextColor: #ffffff !default;
 $secondaryButtonBorder: 1px solid $secondaryButtonBg !default;
-$secondaryButtonHoverBg: scale-color(
-	$secondaryButtonBg,
-	$lightness: -10%
-) !default;
+$secondaryButtonHoverBg: scale-color($secondaryButtonBg,
+		$lightness: -10%) !default;
 $secondaryButtonTextHoverColor: $secondaryButtonTextColor !default;
-$secondaryButtonHoverBorderColor: scale-color(
-	$secondaryButtonBg,
-	$lightness: -10%
-) !default;
-$secondaryButtonActiveBg: scale-color(
-	$secondaryButtonBg,
-	$lightness: -20%
-) !default;
+$secondaryButtonHoverBorderColor: scale-color($secondaryButtonBg,
+		$lightness: -10%) !default;
+$secondaryButtonActiveBg: scale-color($secondaryButtonBg,
+		$lightness: -20%) !default;
 $secondaryButtonTextActiveColor: $secondaryButtonTextColor !default;
-$secondaryButtonActiveBorderColor: scale-color(
-	$secondaryButtonBg,
-	$lightness: -20%
-) !default;
-$secondaryButtonFocusShadow: 0 0 0 0.1rem
-	scale-color($secondaryButtonBg, $lightness: 60%) !default;
+$secondaryButtonActiveBorderColor: scale-color($secondaryButtonBg,
+		$lightness: -20%) !default;
+$secondaryButtonFocusShadow: 0 0 0 0.1rem scale-color($secondaryButtonBg, $lightness: 60%) !default;
 
 $infoButtonBg: #35a4cc !default;
 $infoButtonTextColor: #ffffff !default;
 $infoButtonBorder: 1px solid $infoButtonBg !default;
 $infoButtonHoverBg: scale-color($infoButtonBg, $lightness: -10%) !default;
 $infoButtonTextHoverColor: $infoButtonTextColor !default;
-$infoButtonHoverBorderColor: scale-color(
-	$infoButtonBg,
-	$lightness: -10%
-) !default;
+$infoButtonHoverBorderColor: scale-color($infoButtonBg,
+		$lightness: -10%) !default;
 $infoButtonActiveBg: scale-color($infoButtonBg, $lightness: -20%) !default;
 $infoButtonTextActiveColor: $infoButtonTextColor !default;
-$infoButtonActiveBorderColor: scale-color(
-	$infoButtonBg,
-	$lightness: -20%
-) !default;
+$infoButtonActiveBorderColor: scale-color($infoButtonBg,
+		$lightness: -20%) !default;
 $infoButtonFocusShadow: 0 0 0 0.1rem scale-color($infoButtonBg, $lightness: 60%) !default;
 
 $successButtonBg: #8bae2c !default;
@@ -204,58 +195,40 @@ $successButtonTextColor: #ffffff !default;
 $successButtonBorder: 1px solid $successButtonBg !default;
 $successButtonHoverBg: scale-color($successButtonBg, $lightness: -10%) !default;
 $successButtonTextHoverColor: $successButtonTextColor !default;
-$successButtonHoverBorderColor: scale-color(
-	$successButtonBg,
-	$lightness: -10%
-) !default;
-$successButtonActiveBg: scale-color(
-	$successButtonBg,
-	$lightness: -20%
-) !default;
+$successButtonHoverBorderColor: scale-color($successButtonBg,
+		$lightness: -10%) !default;
+$successButtonActiveBg: scale-color($successButtonBg,
+		$lightness: -20%) !default;
 $successButtonTextActiveColor: $successButtonTextColor !default;
-$successButtonActiveBorderColor: scale-color(
-	$successButtonBg,
-	$lightness: -20%
-) !default;
-$successButtonFocusShadow: 0 0 0 0.1rem
-	scale-color($successButtonBg, $lightness: 60%) !default;
+$successButtonActiveBorderColor: scale-color($successButtonBg,
+		$lightness: -20%) !default;
+$successButtonFocusShadow: 0 0 0 0.1rem scale-color($successButtonBg, $lightness: 60%) !default;
 
 $warningButtonBg: #ff922a !default;
 $warningButtonTextColor: #ffffff !default;
 $warningButtonBorder: 1px solid $warningButtonBg !default;
 $warningButtonHoverBg: scale-color($warningButtonBg, $lightness: -10%) !default;
 $warningButtonTextHoverColor: $warningButtonTextColor !default;
-$warningButtonHoverBorderColor: scale-color(
-	$warningButtonBg,
-	$lightness: -10%
-) !default;
-$warningButtonActiveBg: scale-color(
-	$warningButtonBg,
-	$lightness: -20%
-) !default;
+$warningButtonHoverBorderColor: scale-color($warningButtonBg,
+		$lightness: -10%) !default;
+$warningButtonActiveBg: scale-color($warningButtonBg,
+		$lightness: -20%) !default;
 $warningButtonTextActiveColor: $warningButtonTextColor !default;
-$warningButtonActiveBorderColor: scale-color(
-	$warningButtonBg,
-	$lightness: -20%
-) !default;
-$warningButtonFocusShadow: 0 0 0 0.1rem
-	scale-color($warningButtonBg, $lightness: 60%) !default;
+$warningButtonActiveBorderColor: scale-color($warningButtonBg,
+		$lightness: -20%) !default;
+$warningButtonFocusShadow: 0 0 0 0.1rem scale-color($warningButtonBg, $lightness: 60%) !default;
 
 $helpButtonBg: #7654d4 !default;
 $helpButtonTextColor: #ffffff !default;
 $helpButtonBorder: 1px solid $helpButtonBg !default;
 $helpButtonHoverBg: scale-color($helpButtonBg, $lightness: -10%) !default;
 $helpButtonTextHoverColor: $helpButtonTextColor !default;
-$helpButtonHoverBorderColor: scale-color(
-	$helpButtonBg,
-	$lightness: -10%
-) !default;
+$helpButtonHoverBorderColor: scale-color($helpButtonBg,
+		$lightness: -10%) !default;
 $helpButtonActiveBg: scale-color($helpButtonBg, $lightness: -20%) !default;
 $helpButtonTextActiveColor: $helpButtonTextColor !default;
-$helpButtonActiveBorderColor: scale-color(
-	$helpButtonBg,
-	$lightness: -20%
-) !default;
+$helpButtonActiveBorderColor: scale-color($helpButtonBg,
+		$lightness: -20%) !default;
 $helpButtonFocusShadow: 0 0 0 0.1rem scale-color($helpButtonBg, $lightness: 60%) !default;
 
 $dangerButtonBg: #d45472 !default;
@@ -263,29 +236,24 @@ $dangerButtonTextColor: #ffffff !default;
 $dangerButtonBorder: 1px solid $dangerButtonBg !default;
 $dangerButtonHoverBg: scale-color($dangerButtonBg, $lightness: -10%) !default;
 $dangerButtonTextHoverColor: $dangerButtonTextColor !default;
-$dangerButtonHoverBorderColor: scale-color(
-	$dangerButtonBg,
-	$lightness: -10%
-) !default;
+$dangerButtonHoverBorderColor: scale-color($dangerButtonBg,
+		$lightness: -10%) !default;
 $dangerButtonActiveBg: scale-color($dangerButtonBg, $lightness: -20%) !default;
 $dangerButtonTextActiveColor: $dangerButtonTextColor !default;
-$dangerButtonActiveBorderColor: scale-color(
-	$dangerButtonBg,
-	$lightness: -20%
-) !default;
-$dangerButtonFocusShadow: 0 0 0 0.1rem
-	scale-color($dangerButtonBg, $lightness: 60%) !default;
+$dangerButtonActiveBorderColor: scale-color($dangerButtonBg,
+		$lightness: -20%) !default;
+$dangerButtonFocusShadow: 0 0 0 0.1rem scale-color($dangerButtonBg, $lightness: 60%) !default;
 
-$contrastButtonBg:$shade900 !default;
-$contrastButtonTextColor:#ffffff !default;
-$contrastButtonBorder:1px solid $contrastButtonBg !default;
-$contrastButtonHoverBg:$shade800 !default;
-$contrastButtonTextHoverColor:$contrastButtonTextColor !default;
-$contrastButtonHoverBorderColor:$shade800 !default;
-$contrastButtonActiveBg:$shade700 !default;
-$contrastButtonTextActiveColor:$contrastButtonTextColor !default;
-$contrastButtonActiveBorderColor:$shade700 !default;
-$contrastButtonFocusShadow:none !default;
+$contrastButtonBg: $shade900 !default;
+$contrastButtonTextColor: #ffffff !default;
+$contrastButtonBorder: 1px solid $contrastButtonBg !default;
+$contrastButtonHoverBg: $shade800 !default;
+$contrastButtonTextHoverColor: $contrastButtonTextColor !default;
+$contrastButtonHoverBorderColor: $shade800 !default;
+$contrastButtonActiveBg: $shade700 !default;
+$contrastButtonTextActiveColor: $contrastButtonTextColor !default;
+$contrastButtonActiveBorderColor: $shade700 !default;
+$contrastButtonFocusShadow: none !default;
 
 $linkButtonColor: $primaryDarkerColor !default;
 $linkButtonHoverColor: $primaryDarkerColor !default;
@@ -337,10 +305,8 @@ $toggleButtonActiveBorderColor: $highlightBg !default;
 $toggleButtonTextActiveColor: $highlightTextColor !default;
 $toggleButtonIconActiveColor: $highlightTextColor !default;
 $toggleButtonActiveHoverBg: scale-color($highlightBg, $lightness: -5%) !default;
-$toggleButtonActiveHoverBorderColor: scale-color(
-	$highlightBg,
-	$lightness: -5%
-) !default;
+$toggleButtonActiveHoverBorderColor: scale-color($highlightBg,
+		$lightness: -5%) !default;
 $toggleButtonTextActiveHoverColor: $highlightTextColor !default;
 $toggleButtonIconActiveHoverColor: $highlightTextColor !default;
 
@@ -516,7 +482,8 @@ $cardSubTitleFontWeight: 400 !default;
 $cardSubTitleColor: $shade600 !default;
 $cardContentPadding: 1rem 0 !default;
 $cardFooterPadding: 1rem 0 0 0 !default;
-$cardShadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+$cardShadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+	0 1px 1px 0 rgba(0, 0, 0, 0.14),
 	0 1px 3px 0 rgba(0, 0, 0, 0.12) !default;
 
 //editor
@@ -651,7 +618,8 @@ $toastMessageTextMargin: 0 0 0 1rem !default;
 $toastMargin: 0 0 1rem 0 !default;
 $toastPadding: 1rem !default;
 $toastBorderWidth: 0 0 0 6px !default;
-$toastShadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+$toastShadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+	0 4px 5px 0 rgba(0, 0, 0, 0.14),
 	0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
 $toastOpacity: 0.9 !default;
 $toastTitleFontWeight: 600 !default;
@@ -679,7 +647,8 @@ $errorMessageIconColor: $shade800 !default;
 $overlayContentBorder: 0 none !default;
 $overlayContentBg: $panelContentBg !default;
 $overlayContainerShadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
-	0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12) !default;
+	0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+	0px 9px 46px 8px rgba(0, 0, 0, 0.12) !default;
 
 //dialog
 $dialogHeaderBg: $shade000 !default;
@@ -748,7 +717,8 @@ $submenuHeaderFontWeight: 600 !default;
 $overlayMenuBg: $menuBg !default;
 $overlayMenuBorder: 0 none !default;
 $overlayMenuShadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
-	0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
+	0 4px 5px 0 rgba(0, 0, 0, 0.14),
+	0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
 $verticalMenuPadding: 0.5rem 0.5rem !default;
 $verticalMenuitemMargin: 0 0 4px 0 !default;
 $menuSeparatorMargin: 4px 0 !default;
@@ -857,8 +827,8 @@ $avatarTextColor: $textColor !default;
 $chipBg: $shade300 !default;
 $chipTextColor: $textColor !default;
 $chipBorderRadius: $borderRadius !default;
-$chipFocusBg:$shade400 !default;
-$chipFocusTextColor:$textColor !default;
+$chipFocusBg: $shade400 !default;
+$chipFocusTextColor: $textColor !default;
 
 //scrollTop
 $scrollTopBg: rgba(0, 0, 0, 0.7) !default;
@@ -916,8 +886,10 @@ $imagePreviewActionIconFontSize: 1.5rem !default;
 $imagePreviewActionIconBorderRadius: 50% !default;
 
 :root {
-	font-family: Poppins, sans-serif;
-	--font-family: Poppins, sans-serif;
+	font-family: Poppins,
+		sans-serif;
+	--font-family: Poppins,
+		sans-serif;
 	--surface-a: #{$shade000};
 	--surface-b: #{$shade100};
 	--surface-c: #{$shade200};
