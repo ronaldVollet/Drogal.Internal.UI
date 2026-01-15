@@ -14,7 +14,7 @@ RUN yarn install
 COPY . .
 
 # Faz o build da aplicação React
-RUN yarn build-storybook
+RUN yarn build:storybook
 
 # Etapa 2: Servir os arquivos com um servidor leve (nginx)
 FROM nginx:stable-alpine
