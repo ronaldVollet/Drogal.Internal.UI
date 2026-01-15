@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Accordion } from '../../../../components/Accordion';
 import '../../../../theme.css';
-import { AccordionTab } from '../../../../components/Accordion.Tab';
+import { AccordionTab } from '../../../../components/Accordion.AccordionTab';
 
 
 const meta: Meta<typeof Accordion> = {

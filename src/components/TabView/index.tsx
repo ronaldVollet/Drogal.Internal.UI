@@ -1,6 +1,6 @@
 import {
-    TabView as PureTabView,
-    type TabViewProps
+  TabView as PureTabView,
+  type TabViewProps
 } from "primereact/tabview";
 
 /**
@@ -16,21 +16,4 @@ import {
  */
 export const TabView = (props: TabViewProps) => {
   return <PureTabView {...props} />;
-};
-
-
-import {
-    TabPanel as PureTabPanel,
-    type TabPanelProps
-} from "primereact/tabview";
-
-/**
- * @description
- * Componente TabPanel baseado no PrimeReact.
- * Representa um painel individual dentro do componente TabView.
- *
- * Utilizado para definir o conteúdo exibido em cada aba.
- */
-export const TabPanel = (props: TabPanelProps) => {
-  return <PureTabPanel {...props} />;
 };

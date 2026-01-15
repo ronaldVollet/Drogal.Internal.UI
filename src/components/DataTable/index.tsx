@@ -22,19 +22,5 @@ export const DataTable = <T extends DataTableValueArray>(
   return <PureDataTable {...props} />;
 };
 
-import { Column as PureColumn, type ColumnProps } from "primereact/column";
-
-/**
- * @description
- * Componente Column baseado no PrimeReact.
- * Representa uma coluna individual dentro do componente DataTable.
- *
- * Deve ser utilizado como filho direto do componente `DataTable`,
- * permitindo configuração de campos, cabeçalhos, templates
- * e comportamentos específicos por coluna.
- */
-export const Column = (props: ColumnProps) => {
-  return <PureColumn {...props} />;
-};
 
 

@@ -1,12 +1,13 @@
 import React from 'react';
 import './overview.css';
 import { Accordion } from '../../../components/Accordion';
-import { AccordionTab } from '../../../components/Accordion.Tab';
+import { AccordionTab } from '../../../components/Accordion.AccordionTab';
 import { Avatar } from '../../../components/Avatar';
 import { Badge } from '../../../components/Badge';
 import { Button } from '../../../components/Button';
 import { Calendar } from '../../../components/Calendar';
 import { DataTable } from '../../../components/DataTable';
+import { Column } from '../../../components/Column';
 // import { Dialog } from '../../../components/Dialog';
 import { Editor } from '../../../components/Editor';
 import { IconField } from '../../../components/IconField';
@@ -21,6 +22,7 @@ import { SelectButton } from '../../../components/SelectButton';
 import { Skeleton } from '../../../components/Skeleton';
 import { TabMenu } from '../../../components/TabMenu';
 import { TabView } from '../../../components/TabView';
+import { TabPanel } from '../../../components/TabView.TabPanel';
 import '../../../theme.css';
 
 export const Overview: React.FC = () => {
@@ -33,7 +35,7 @@ export const Overview: React.FC = () => {
         <p>Visualização de todos os componentes do Design System</p>
 
         <div className="components-grid">
-          <div className="component-card">
+          <div className="component-card" >
             <h3>Accordion</h3>
             <Accordion activeIndex={0}>
               <AccordionTab header="Features">
@@ -56,7 +58,7 @@ export const Overview: React.FC = () => {
             </Accordion>
           </div>
 
-          <div className="component-card">
+          <div className="component-card" >
             <h3>Avatar</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -85,7 +87,7 @@ export const Overview: React.FC = () => {
             </div>
           </div>
 
-          <div className="component-card">
+          <div className="component-card" >
             <h3>Badge</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -112,7 +114,7 @@ export const Overview: React.FC = () => {
             </div>
           </div>
 
-          <div className="component-card">
+          <div className="component-card" >
             <h3>Button</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -145,20 +147,59 @@ export const Overview: React.FC = () => {
             </div>
           </div>
 
-          <div className="component-card">
+          <div className="component-card" >
             <h3>Calendar</h3>
-            <Calendar />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <Calendar placeholder="Select a date" showIcon />
+              <Calendar placeholder="Select date and time" showIcon showTime hourFormat="24" />
+              <Calendar placeholder="Select time" showIcon timeOnly hourFormat="24" />
+              <Calendar placeholder="Select date range"
+                // selectionMode="range"
+                hideOnRangeSelection />
+              <Calendar placeholder="Month & Year" showIcon monthNavigator yearNavigator yearRange="2000:2030" />
+              <Calendar placeholder="Inline calendar" inline />
+            </div>
           </div>
 
-          <div className="component-card">
+          <div className="component-card" >
             <h3>DataTable</h3>
-            <DataTable />
+            <DataTable
+              value={[
+                { id: 1, name: 'Bamboo Watch', category: 'Accessories', price: 65 },
+                { id: 2, name: 'Black Watch', category: 'Accessories', price: 72 },
+                { id: 3, name: 'Blue Band', category: 'Fitness', price: 79 },
+                { id: 4, name: 'Blue T-Shirt', category: 'Clothing', price: 29 },
+                { id: 5, name: 'Bracelet', category: 'Accessories', price: 15 },
+              ]}
+              dataKey="id"
+              paginator
+              rows={3}
+              stripedRows
+              tableStyle={{ minWidth: '100%' }}
+            >
+              <Column field="name" header="Name" sortable />
+              <Column field="category" header="Category" sortable />
+              <Column field="price" header="Price" sortable />
+            </DataTable>
           </div>
 
-          {/* <div className="component-card">
-            <h3>Dialog</h3>
-            <Dialog />
-          </div> */}
+          <div className="component-card" >
+            <h3>InputText</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <InputText title='Title' placeholder="Enter text" />
+              <InputText title="Username" placeholder="Enter your username" name="username" />
+              <InputText placeholder="Disabled" disabled />
+              <InputText value="Read only text" readOnly />
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <InputText placeholder="Small" size="small" />
+                <InputText placeholder="Normal" />
+                <InputText placeholder="Large" size="large" />
+              </div>
+              <InputText type="email" placeholder="Enter your email" title="Email" />
+              <InputText placeholder="Only integers" keyfilter="int" title="Integer Input" />
+              <InputText placeholder="Invalid input" invalid title="Error Field" />
+            </div>
+          </div>
 
           <div className="component-card">
             <h3>IconField</h3>
@@ -180,23 +221,7 @@ export const Overview: React.FC = () => {
             <InputSwitch />
           </div> */}
 
-          <div className="component-card">
-            <h3>InputText</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
-              <InputText placeholder="Enter text" />
-              <InputText title="Username" placeholder="Enter your username" name="username" />
-              <InputText placeholder="Disabled" disabled />
-              <InputText value="Read only text" readOnly />
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <InputText placeholder="Small" size="small" />
-                <InputText placeholder="Normal" />
-                <InputText placeholder="Large" size="large" />
-              </div>
-              <InputText type="email" placeholder="Enter your email" title="Email" />
-              <InputText placeholder="Only integers" keyfilter="int" title="Integer Input" />
-              <InputText placeholder="Invalid input" invalid title="Error Field" />
-            </div>
-          </div>
+
 
           <div className="component-card">
             <h3>InputTextArea</h3>
@@ -225,17 +250,42 @@ export const Overview: React.FC = () => {
 
           <div className="component-card">
             <h3>TabMenu</h3>
-            <TabMenu />
+            <TabMenu
+              model={[
+                { label: 'Home', icon: 'pi pi-home' },
+                { label: 'Calendar', icon: 'pi pi-calendar' },
+                { label: 'Edit', icon: 'pi pi-pencil' },
+                { label: 'Settings', icon: 'pi pi-cog' }
+              ]}
+              activeIndex={0}
+            />
           </div>
-
-          {/* <div className="component-card">
-            <h3>TabPanel</h3>
-            <TabPanel />
-          </div> */}
 
           <div className="component-card">
             <h3>TabView</h3>
-            <TabView />
+            <TabView>
+              <TabPanel header="Overview" leftIcon="pi pi-home">
+                <p className="m-0">
+                  TabView is a container component to group content with tabs. It provides a clean interface
+                  for organizing related information in separate panels.
+                </p>
+              </TabPanel>
+              <TabPanel header="Features" leftIcon="pi pi-star">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <p className="m-0">• Support for icons on tab headers</p>
+                  <p className="m-0">• Controlled and uncontrolled modes</p>
+                  <p className="m-0">• Scrollable tab headers</p>
+                  <p className="m-0">• Disabled tabs</p>
+                  <p className="m-0">• Dynamic tabs</p>
+                </div>
+              </TabPanel>
+              <TabPanel header="Usage" leftIcon="pi pi-code">
+                <p className="m-0">
+                  Perfect for organizing complex forms, settings pages, dashboards, and any content
+                  that benefits from being divided into logical sections.
+                </p>
+              </TabPanel>
+            </TabView>
           </div>
 
           <div className="component-card">

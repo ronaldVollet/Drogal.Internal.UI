@@ -68,17 +68,19 @@
 }
 
 .components-grid {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 24px;
   margin-top: 32px;
 
 }
 
 .component-card {
+  /* height: fit-content; */
   padding: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
