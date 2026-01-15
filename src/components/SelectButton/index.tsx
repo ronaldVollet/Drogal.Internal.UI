@@ -1,8 +1,20 @@
+import {
+    SelectButton as PureSelectButton,
+    type SelectButtonProps
+} from "primereact/selectbutton";
 
-import { SelectButton as PureSelectButton, type SelectButtonProps } from "primereact/selectbutton";
-
-export const SelectButton = (props:SelectButtonProps) => {
-
-    return <PureSelectButton {...props}/>
-    
-}
+/**
+ * @description
+ * Componente SelectButton baseado no PrimeReact.
+ * Utilizado para seleção de uma ou múltiplas opções
+ * exibidas como botões.
+ *
+ * Ideal para alternar estados, filtros ou escolhas
+ * rápidas em interfaces de usuário.
+ *
+ * Encapsula o componente `SelectButton` do PrimeReact,
+ * mantendo total compatibilidade com suas props originais.
+ */
+export const SelectButton = (props: SelectButtonProps) => {
+  return <PureSelectButton {...props} />;
+};
