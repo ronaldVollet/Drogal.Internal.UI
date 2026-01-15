@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import './icons.css';
 import '../../../theme.css';
 import '../../../outlined-icons.css'
@@ -11,6 +11,8 @@ export const Icons: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [iconType, setIconType] = useState<'outlined' | 'rounded' | 'all'>('all');
   const [copiedIcon, setCopiedIcon] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(100);
+  const observerRef = useRef<HTMLDivElement>(null);
 
   const handleCopyIconName = (iconName: string) => {
     navigator.clipboard.writeText(iconName);
@@ -29,6 +31,34 @@ export const Icons: React.FC = () => {
       key.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [searchTerm]);
+
+  // Reset visible count when search or type changes
+  useEffect(() => {
+    setVisibleCount(100);
+  }, [searchTerm, iconType]);
+
+  // Infinite scroll observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => prev + 100);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = observerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
 
   return (
     <article>
@@ -69,10 +99,10 @@ export const Icons: React.FC = () => {
         <div className="components-grid-icons">
           {(iconType === 'all' || iconType === 'rounded') && (
             <div className='component-card-icons'>
-              <h3>Rounded Icons</h3>
+              <h3>Rounded Icons ({filteredRoundedIcons.length})</h3>
               <div className='component-card-icons-list'>
                 {
-                  filteredRoundedIcons.map((key) => (
+                  filteredRoundedIcons.slice(0, iconType === 'all' ? Math.floor(visibleCount / 2) : visibleCount).map((key) => (
                     <div
                       key={key}
                       className={`icon-item ${copiedIcon === key ? 'copied' : ''}`}
@@ -90,10 +120,10 @@ export const Icons: React.FC = () => {
           )}
           {(iconType === 'all' || iconType === 'outlined') && (
             <div className='component-card-icons'>
-              <h3>Outlined Icons</h3>
+              <h3>Outlined Icons ({filteredOutlinedIcons.length})</h3>
               <div className='component-card-icons-list'>
                 {
-                  filteredOutlinedIcons.map((key) => (
+                  filteredOutlinedIcons.slice(0, iconType === 'all' ? Math.floor(visibleCount / 2) : visibleCount).map((key) => (
                     <div
                       key={key}
                       className={`icon-item ${copiedIcon === key ? 'copied' : ''}`}
@@ -109,7 +139,7 @@ export const Icons: React.FC = () => {
               </div>
             </div>
           )}
-
+          <div ref={observerRef} className="scroll-trigger" />
         </div>
 
       </section>
