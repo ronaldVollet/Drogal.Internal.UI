@@ -46,13 +46,6 @@
     }
 }
 
-.p-inputtext-label {
-    font-family: var(--font-family);
-    font-feature-settings: var(--font-feature-settings, normal);
-    font-size: $inputTextFontSize;
-    color: $inputTextColor;
-}
-
 .p-float-label>label {
     left: nth($inputPadding, 2);
     color: $inputPlaceholderTextColor;

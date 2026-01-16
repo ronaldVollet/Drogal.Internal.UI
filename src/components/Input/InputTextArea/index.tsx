@@ -2,6 +2,11 @@ import {
   InputTextarea as PureInputTextArea,
   type InputTextareaProps
 } from "primereact/inputtextarea";
+import LabelInput from "../../Label/LabelInput";
+
+interface ExtendedProps extends InputTextareaProps {
+  title: string;
+}
 
 /**
  * @description
@@ -15,12 +20,10 @@ import {
  * Encapsula o componente `InputTextarea` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
  */
-export const InputTextArea = (props: InputTextareaProps) => {
+export const InputTextArea = (props: ExtendedProps) => {
   return (
-    <div className="flex flex-column gap-2">
-      {props?.title && (
-        <label htmlFor={props.name}>{props.title}</label>
-      )}
+    <div className="drg-input-spacing">
+      <LabelInput title={props.title} name={props.name} />
       <PureInputTextArea {...props} />
     </div>
   );

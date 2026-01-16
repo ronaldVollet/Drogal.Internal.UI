@@ -1,7 +1,12 @@
 import {
-    InputNumber as PureInputNumber,
-    type InputNumberProps
+  InputNumber as PureInputNumber,
+  type InputNumberProps
 } from "primereact/inputnumber";
+import LabelInput from "../../Label/LabelInput";
+
+interface ExtendedProps extends InputNumberProps {
+  title: string;
+}
 
 /**
  * @description
@@ -15,12 +20,10 @@ import {
  * Encapsula o componente `InputNumber` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
  */
-export const InputNumber = (props: InputNumberProps) => {
+export const InputNumber = (props: ExtendedProps) => {
   return (
-    <div className="flex flex-column gap-2">
-      {props?.title && (
-        <label htmlFor={props.name}>{props.title}</label>
-      )}
+    <div className="drg-input-spacing">
+      <LabelInput title={props.title} name={props.name} />
       <PureInputNumber {...props} />
     </div>
   );

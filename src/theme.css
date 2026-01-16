@@ -23090,12 +23090,6 @@
     font-size: 1.25rem;
     padding: 0.625rem 0.9375rem;
   }
-  .p-inputtext-label {
-    font-family: var(--font-family);
-    font-feature-settings: var(--font-feature-settings, normal);
-    font-size: 1rem;
-    color: #6c6c6c;
-  }
   .p-float-label > label {
     left: 0.75rem;
     color: #898989;
@@ -24001,6 +23995,12 @@
   }
   .p-togglebutton.p-invalid > .p-button {
     border-color: #f88c79;
+  }
+  .drg-label-input {
+    font-family: var(--font-family);
+    font-feature-settings: var(--font-feature-settings, normal);
+    font-size: 1rem;
+    color: #6c6c6c;
   }
   .p-button {
     color: #ffffff;

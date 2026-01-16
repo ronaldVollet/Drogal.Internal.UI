@@ -2,6 +2,7 @@ import {
   InputText as PureInputText,
   type InputTextProps
 } from "primereact/inputtext";
+import LabelInput from "../../Label/LabelInput";
 
 /**
  * @description
@@ -18,14 +19,14 @@ import {
  */
 
 
-interface InputTextExtendedProps extends InputTextProps {
+interface ExtendedProps extends InputTextProps {
   title: string;
 }
 
-export const InputText = (props: InputTextExtendedProps) => {
+export const InputText = (props: ExtendedProps) => {
   return (
     <div className="drg-input-spacing">
-      <label htmlFor={props.name} className="p-inputtext-label">{props.title}</label>
+      <LabelInput title={props.title} name={props.name} />
       <PureInputText {...props} />
     </div>
   );

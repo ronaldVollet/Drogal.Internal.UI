@@ -1,4 +1,9 @@
 import { Editor as PureEditor, type EditorProps } from "primereact/editor";
+import LabelInput from "../../Label/LabelInput";
+
+interface ExtendedProps extends EditorProps {
+  title: string;
+}
 
 /**
  * @description
@@ -12,6 +17,11 @@ import { Editor as PureEditor, type EditorProps } from "primereact/editor";
  * Encapsula o componente `Editor` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
  */
-export const Editor = (props: EditorProps) => {
-  return <PureEditor {...props} />;
+export const Editor = (props: ExtendedProps) => {
+  return (
+    <div className="drg-input-spacing">
+      <LabelInput title={props.title} name={props.name} />
+      <PureEditor {...props} />
+    </div>
+  )
 };

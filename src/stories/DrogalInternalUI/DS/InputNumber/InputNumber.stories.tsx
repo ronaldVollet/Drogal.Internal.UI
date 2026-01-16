@@ -133,6 +133,7 @@ export const Primary: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     placeholder: 'Digite um número',
   },
 };
@@ -143,6 +144,7 @@ export const WithValue: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     placeholder: 'Digite um número',
   },
 };
@@ -154,6 +156,7 @@ export const WithButtons: Story = {
   },
   args: {
     showButtons: true,
+    title: 'Input Number',
     step: 1,
   },
 };
@@ -167,6 +170,7 @@ export const ButtonsStacked: Story = {
     showButtons: true,
     buttonLayout: 'stacked',
     step: 1,
+    title: 'Input Number',
   },
 };
 
@@ -176,6 +180,7 @@ export const ButtonsHorizontal: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     showButtons: true,
     buttonLayout: 'horizontal',
     step: 1,
@@ -188,6 +193,7 @@ export const WithMinMax: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     min: 0,
     max: 100,
     showButtons: true,
@@ -201,6 +207,7 @@ export const Decimals: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     minFractionDigits: 2,
     maxFractionDigits: 2,
     placeholder: 'Digite um valor decimal',
@@ -213,6 +220,7 @@ export const Currency: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     mode: 'currency',
     currency: 'BRL',
     locale: 'pt-BR',
@@ -225,6 +233,7 @@ export const CurrencyUS: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     mode: 'currency',
     currency: 'USD',
     locale: 'en-US',
@@ -237,6 +246,7 @@ export const WithPrefix: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     prefix: '% ',
   },
 };
@@ -247,6 +257,7 @@ export const WithSuffix: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     suffix: ' kg',
   },
 };
@@ -257,6 +268,7 @@ export const WithThousandsSeparator: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     useGrouping: true,
     locale: 'pt-BR',
   },
@@ -268,6 +280,7 @@ export const Disabled: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     disabled: true,
   },
 };
@@ -278,6 +291,7 @@ export const Invalid: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     invalid: true,
     placeholder: 'Campo obrigatório',
   },
@@ -289,6 +303,7 @@ export const FilledVariant: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
+    title: 'Input Number',
     variant: 'filled',
     placeholder: 'Digite um número',
   },
@@ -300,7 +315,7 @@ export const Small: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
-    // size: 'small',
+    title: 'Input Number',
     placeholder: 'Tamanho pequeno',
   },
 };
@@ -311,7 +326,7 @@ export const Large: Story = {
     return <InputNumber {...args} value={value} onChange={(e) => setValue(e.value)} />;
   },
   args: {
-    // size: 'large',
+    title: 'Input Number',
     placeholder: 'Tamanho grande',
   },
 };

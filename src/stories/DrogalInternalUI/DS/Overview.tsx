@@ -23,6 +23,7 @@ import { Skeleton } from '../../../components/Skeleton';
 import { TabMenu } from '../../../components/TabMenu';
 import { TabView } from '../../../components/TabView';
 import { TabPanel } from '../../../components/TabView.TabPanel';
+import EnumIcons from '../../../icons/EnumIcons';
 
 export const Overview: React.FC = () => {
 
@@ -66,9 +67,9 @@ export const Overview: React.FC = () => {
                 <Avatar label="U" style={{ backgroundColor: '#2196F3', color: '#ffffff' }} />
               </div>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                <Avatar icon="pi pi-user" />
-                <Avatar icon="pi pi-user" />
-                <Avatar icon="pi pi-user" />
+                <Avatar icon={EnumIcons.Outlined.person} />
+                <Avatar icon={EnumIcons.Outlined.person} />
+                <Avatar icon={EnumIcons.Outlined.person} />
               </div>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
                 <Avatar label="P" />
@@ -149,14 +150,14 @@ export const Overview: React.FC = () => {
           <div className="component-card" >
             <h3>Calendar</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
-              <Calendar placeholder="Select a date" showIcon />
-              <Calendar placeholder="Select date and time" showIcon showTime hourFormat="24" />
-              <Calendar placeholder="Select time" showIcon timeOnly hourFormat="24" />
-              <Calendar placeholder="Select date range"
+              <Calendar title='Calendar' placeholder="Select a date" showIcon />
+              <Calendar title='Calendar' placeholder="Select date and time" showIcon showTime hourFormat="24" />
+              <Calendar title='Calendar' placeholder="Select time" showIcon timeOnly hourFormat="24" />
+              <Calendar title='Calendar' placeholder="Select date range"
                 // selectionMode="range"
                 hideOnRangeSelection />
-              <Calendar placeholder="Month & Year" showIcon monthNavigator yearNavigator yearRange="2000:2030" />
-              <Calendar placeholder="Inline calendar" inline />
+              <Calendar title='Calendar' placeholder="Month & Year" showIcon monthNavigator yearNavigator yearRange="2000:2030" />
+              <Calendar title='Calendar' placeholder="Inline calendar" inline />
             </div>
           </div>
 
@@ -190,9 +191,9 @@ export const Overview: React.FC = () => {
               <InputText title="Disabled" placeholder="Disabled" disabled />
               <InputText title="Read Only" value="Read only text" readOnly />
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <InputText title="Small" placeholder="Small" size="small" />
+                <InputText className="p-inputtext-sm" title="Small" placeholder="Small" />
                 <InputText title="Normal" placeholder="Normal" />
-                <InputText title="Large" placeholder="Large" size="large" />
+                <InputText className="p-inputtext-lg" title="Large" placeholder="Large" />
               </div>
               <InputText type="email" placeholder="Enter your email" title="Email" />
               <InputText placeholder="Only integers" keyfilter="int" title="Integer Input" />
@@ -209,6 +210,7 @@ export const Overview: React.FC = () => {
             <h3>InputNumber</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
               <InputNumber
+                title="Basic"
                 placeholder="Digite um número"
               />
               <InputNumber
@@ -297,6 +299,7 @@ export const Overview: React.FC = () => {
             <h3>InputTextArea</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
               <InputTextArea
+                title="Basic"
                 placeholder="Enter your text here"
                 rows={5}
               />
@@ -313,6 +316,7 @@ export const Overview: React.FC = () => {
                 rows={3}
               />
               <InputTextArea
+                title="Read Only"
                 value="This text is read-only and cannot be edited."
                 readOnly
                 rows={3}
@@ -483,8 +487,9 @@ export const Overview: React.FC = () => {
 
           <div className="component-card">
             <h3>Editor</h3>
-            <Editor />
+            <Editor title="Rich Text Editor" placeholder="Start typing here..." />
           </div>
+
         </div>
 
       </section>

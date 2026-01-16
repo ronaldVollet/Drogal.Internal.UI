@@ -145,6 +145,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
+    title: 'Basic',
     placeholder: 'Enter your text here',
     rows: 5,
     cols: 30,
@@ -173,6 +174,7 @@ export const AutoResize: Story = {
 
 export const WithRows: Story = {
   args: {
+    title: 'Textarea with 10 Rows',
     placeholder: 'Textarea with 10 rows',
     rows: 10,
     cols: 30,
@@ -181,6 +183,7 @@ export const WithRows: Story = {
 
 export const Disabled: Story = {
   args: {
+    title: 'Disabled Textarea',
     placeholder: 'This textarea is disabled',
     disabled: true,
     rows: 5,
@@ -190,6 +193,7 @@ export const Disabled: Story = {
 
 export const ReadOnly: Story = {
   args: {
+    title: 'Read Only',
     value: 'This text is read-only and cannot be edited.',
     readOnly: true,
     rows: 3,
