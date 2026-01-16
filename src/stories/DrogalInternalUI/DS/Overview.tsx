@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './overview.css';
 import { Accordion } from '../../../components/Accordion';
 import { AccordionTab } from '../../../components/Accordion.AccordionTab';
+import { AutoComplete } from '../../../components/AutoComplete';
 import { Avatar } from '../../../components/Avatar';
 import { Badge } from '../../../components/Badge';
 import { Button } from '../../../components/Button';
@@ -9,6 +10,7 @@ import { Calendar } from '../../../components/Input/Calendar';
 import { DataTable } from '../../../components/DataTable';
 import { Column } from '../../../components/Column';
 // import { Dialog } from '../../../components/Dialog';
+import { Dropdown } from '../../../components/Dropdown';
 import { Editor } from '../../../components/Input/Editor';
 import { IconField } from '../../../components/Input/IconField';
 import { InputIcon } from '../../../components/Input/InputIcon';
@@ -39,6 +41,51 @@ export const Overview: React.FC = () => {
   const [cityValue, setCityValue] = useState<any>(null);
   const [multipleValue, setMultipleValue] = useState<any>([]);
   const [justifyValue, setJustifyValue] = useState<any>(null);
+
+  // AutoComplete states
+  const [autoCompleteValue, setAutoCompleteValue] = useState('');
+  const [autoCompleteItems, setAutoCompleteItems] = useState<string[]>([]);
+  const [countryValue, setCountryValue] = useState<any>(null);
+  const [filteredCountries, setFilteredCountries] = useState<any[]>([]);
+  const [multipleCountries, setMultipleCountries] = useState<any[]>([]);
+  const [filteredMultipleCountries, setFilteredMultipleCountries] = useState<any[]>([]);
+
+  // Dropdown states
+  const [dropdownCity, setDropdownCity] = useState<any>(null);
+  const [dropdownCountry, setDropdownCountry] = useState<any>(null);
+
+  const cities = ['New York', 'Rome', 'London', 'Istanbul', 'Paris', 'Tokyo', 'Berlin', 'Madrid', 'Cairo', 'Sydney'];
+  const countries = [
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'United States', code: 'US' }
+  ];
+
+  const searchCities = (event: { query: string }) => {
+    const filtered = cities.filter((city) =>
+      city.toLowerCase().includes(event.query.toLowerCase())
+    );
+    setAutoCompleteItems(filtered);
+  };
+
+  const searchCountries = (event: { query: string }) => {
+    const filtered = countries.filter((country) =>
+      country.name.toLowerCase().includes(event.query.toLowerCase())
+    );
+    setFilteredCountries(filtered);
+  };
+
+  const searchMultipleCountries = (event: { query: string }) => {
+    const filtered = countries.filter((country) =>
+      country.name.toLowerCase().includes(event.query.toLowerCase())
+    );
+    setFilteredMultipleCountries(filtered);
+  };
 
   return (
     <article>
@@ -71,6 +118,128 @@ export const Overview: React.FC = () => {
             </Accordion>
             <div className="component-card-footer">
               <a href="../?path=/docs/drogal-internal-ui-ds-accordion--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
+          </div>
+
+          <div className="component-card">
+            <h3>AutoComplete</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <div>
+                <AutoComplete
+                  title='Cities'
+                  value={autoCompleteValue}
+                  suggestions={autoCompleteItems}
+                  completeMethod={searchCities}
+                  onChange={(e) => setAutoCompleteValue(e.value)}
+                  placeholder="Search cities"
+                />
+              </div>
+              <div>
+                <AutoComplete
+                  title='Cities'
+                  value={autoCompleteValue}
+                  suggestions={autoCompleteItems}
+                  completeMethod={searchCities}
+                  onChange={(e) => setAutoCompleteValue(e.value)}
+                  placeholder="Search cities"
+                  dropdown
+                />
+              </div>
+              <div>
+                <AutoComplete
+                  title='Countries'
+                  value={countryValue}
+                  suggestions={filteredCountries}
+                  completeMethod={searchCountries}
+                  onChange={(e) => setCountryValue(e.value)}
+                  field="name"
+                  placeholder="Search countries"
+                />
+              </div>
+              <div>
+                <AutoComplete
+                  title='Countries'
+                  value={multipleCountries}
+                  suggestions={filteredMultipleCountries}
+                  completeMethod={searchMultipleCountries}
+                  onChange={(e) => setMultipleCountries(e.value)}
+                  field="name"
+                  placeholder="Select multiple countries"
+                  multiple
+                />
+              </div>
+              {/* <div> */}
+              <AutoComplete
+                title='Countries'
+                value={multipleCountries}
+                suggestions={filteredMultipleCountries}
+                completeMethod={searchMultipleCountries}
+                onChange={(e) => setMultipleCountries(e.value)}
+                field="name"
+                placeholder="Select multiple countries"
+                multiple
+                dropdown
+              />
+              {/* </div> */}
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-autocomplete--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
+          </div>
+
+          <div className="component-card">
+            <h3>Dropdown</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <div>
+                <Dropdown
+                  title='City'
+                  value={dropdownCity}
+                  onChange={(e) => setDropdownCity(e.value)}
+                  options={cities.map(city => ({ name: city, code: city }))}
+                  optionLabel="name"
+                  placeholder="Select a City"
+                />
+              </div>
+              <div>
+                <Dropdown
+                  title='With Filter'
+                  value={dropdownCountry}
+                  onChange={(e) => setDropdownCountry(e.value)}
+                  options={countries}
+                  optionLabel="name"
+                  placeholder="Select a Country"
+                  filter
+                />
+              </div>
+              <div>
+                <Dropdown
+                  title="With Clear Icon"
+                  value={dropdownCity}
+                  onChange={(e) => setDropdownCity(e.value)}
+                  options={cities.map(city => ({ name: city, code: city }))}
+                  optionLabel="name"
+                  placeholder="Select a City"
+                  showClear
+                />
+              </div>
+              <div>
+                <Dropdown
+                  title="Editable"
+                  value={dropdownCity}
+                  onChange={(e) => setDropdownCity(e.value)}
+                  options={cities.map(city => ({ name: city, code: city }))}
+                  optionLabel="name"
+                  placeholder="Select a City"
+                  editable
+                />
+              </div>
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-dropdown--docs" className="component-link" target="_parent">
                 Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
               </a>
             </div>
