@@ -14,13 +14,18 @@ import {
  *
  * Encapsula o componente `InputText` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
+ * 
  */
-export const InputText = (props: InputTextProps) => {
+
+
+interface InputTextExtendedProps extends InputTextProps {
+  title: string;
+}
+
+export const InputText = (props: InputTextExtendedProps) => {
   return (
-    <div className="flex flex-column gap-2">
-      {props?.title && (
-        <label htmlFor={props.name}>{props.title}</label>
-      )}
+    <div className="drg-input-spacing">
+      <label htmlFor={props.name} className="p-inputtext-label">{props.title}</label>
       <PureInputText {...props} />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import './icons.css';
 import Icon from '../../../components/Icon';
 import EnumIcons from '../../../icons/EnumIcons';
-import { InputText } from '../../../components/InputText';
+import { InputText } from '../../../components/Input/InputText';
 
 export const Icons: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');

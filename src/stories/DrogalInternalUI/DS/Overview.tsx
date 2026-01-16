@@ -5,18 +5,18 @@ import { AccordionTab } from '../../../components/Accordion.AccordionTab';
 import { Avatar } from '../../../components/Avatar';
 import { Badge } from '../../../components/Badge';
 import { Button } from '../../../components/Button';
-import { Calendar } from '../../../components/Calendar';
+import { Calendar } from '../../../components/Input/Calendar';
 import { DataTable } from '../../../components/DataTable';
 import { Column } from '../../../components/Column';
 // import { Dialog } from '../../../components/Dialog';
-import { Editor } from '../../../components/Editor';
-import { IconField } from '../../../components/IconField';
-import { InputNumber } from '../../../components/InputNumber';
-import { InputPassword } from '../../../components/InputPassword';
+import { Editor } from '../../../components/Input/Editor';
+import { IconField } from '../../../components/Input/IconField';
+import { InputNumber } from '../../../components/Input/InputNumber';
+import { InputPassword } from '../../../components/Input/InputPassword';
 // import { InputSwitch } from '../../../components/InputSwitch';
-import { InputText } from '../../../components/InputText';
-import { InputTextArea } from '../../../components/InputTextArea';
-import { MultiSelect } from '../../../components/MultiSelect';
+import { InputText } from '../../../components/Input/InputText';
+import { InputTextArea } from '../../../components/Input/InputTextArea';
+import { MultiSelect } from '../../../components/Input/MultiSelect';
 import { Paginator } from '../../../components/Paginator';
 import { SelectButton } from '../../../components/SelectButton';
 import { Skeleton } from '../../../components/Skeleton';
@@ -187,12 +187,12 @@ export const Overview: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
               <InputText title='Title' placeholder="Enter text" />
               <InputText title="Username" placeholder="Enter your username" name="username" />
-              <InputText placeholder="Disabled" disabled />
-              <InputText value="Read only text" readOnly />
+              <InputText title="Disabled" placeholder="Disabled" disabled />
+              <InputText title="Read Only" value="Read only text" readOnly />
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <InputText placeholder="Small" size="small" />
-                <InputText placeholder="Normal" />
-                <InputText placeholder="Large" size="large" />
+                <InputText title="Small" placeholder="Small" size="small" />
+                <InputText title="Normal" placeholder="Normal" />
+                <InputText title="Large" placeholder="Large" size="large" />
               </div>
               <InputText type="email" placeholder="Enter your email" title="Email" />
               <InputText placeholder="Only integers" keyfilter="int" title="Integer Input" />

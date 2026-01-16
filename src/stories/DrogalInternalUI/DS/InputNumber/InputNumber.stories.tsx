@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import '../../../../theme.css'
-import { InputNumber } from '../../../../components/InputNumber';
+import { InputNumber } from '../../../../components/Input/InputNumber';
 
 const meta = {
   title: 'Drogal Internal UI/DS/InputNumber',

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import '../../../../theme.css'
-import { MultiSelect } from '../../../../components/MultiSelect';
+import { MultiSelect } from '../../../../components/Input/MultiSelect';
 
 const cities = [
   { name: 'New York', code: 'NY' },

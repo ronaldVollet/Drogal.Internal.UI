@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import '../../../../theme.css'
-import { InputTextArea } from '../../../../components/InputTextArea';
+import { InputTextArea } from '../../../../components/Input/InputTextArea';
 
 const meta = {
   title: 'Drogal Internal UI/DS/InputTextArea',

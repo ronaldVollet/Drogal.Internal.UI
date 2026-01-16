@@ -6,6 +6,6 @@ interface IconProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Icon = (props: IconProps) => {
-  return <i className={`drg ${props.name}`} {...props} />;
+  return <i className={`drg-icon ${props.name}`} {...props} />;
 }
 export default Icon;

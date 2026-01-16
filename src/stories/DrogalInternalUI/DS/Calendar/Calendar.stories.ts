@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import '../../../../theme.css'
-import { Calendar } from '../../../../components/Calendar';
+import { Calendar } from '../../../../components/Input/Calendar';
 
 const meta = {
   title: 'Drogal Internal UI/DS/Calendar',
