@@ -23098,7 +23098,7 @@
   .p-float-label > .p-invalid + label {
     color: #f88c79;
   }
-  .p-icon-field-left > .p-inputtext {
+  .p-icon-field-left > div > .p-inputtext {
     padding-left: 2.5rem;
   }
   .p-icon-field-left.p-float-label > label {
@@ -23141,7 +23141,7 @@
   }
   .p-icon-field > .p-input-icon {
     position: absolute;
-    top: 50%;
+    top: 68%;
     margin-top: -0.5rem;
   }
   .p-fluid .p-icon-field-left,

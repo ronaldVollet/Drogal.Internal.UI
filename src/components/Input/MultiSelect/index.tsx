@@ -1,7 +1,13 @@
 import {
-    MultiSelect as PureMultiSelect,
-    type MultiSelectProps
+  MultiSelect as PureMultiSelect,
+  type MultiSelectProps
 } from "primereact/multiselect";
+import LabelInput from "../../Label/LabelInput";
+
+
+interface ExtendedProps extends MultiSelectProps {
+  title: string;
+}
 
 /**
  * @description
@@ -18,12 +24,10 @@ import {
  * Encapsula o componente `MultiSelect` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
  */
-export const MultiSelect = (props: MultiSelectProps) => {
+export const MultiSelect = (props: ExtendedProps) => {
   return (
-    <div className="flex flex-column gap-2">
-      {props?.title && (
-        <label htmlFor={props.name}>{props.title}</label>
-      )}
+    <div className="drg-input-spacing">
+      <LabelInput title={props.title} name={props.name} />
       <PureMultiSelect {...props} />
     </div>
   );

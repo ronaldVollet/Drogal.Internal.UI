@@ -1,7 +1,12 @@
 import {
-    InputSwitch as PureInputSwitch,
-    type InputSwitchProps
+  InputSwitch as PureInputSwitch,
+  type InputSwitchProps
 } from "primereact/inputswitch";
+import LabelInput from "../../Label/LabelInput";
+
+interface ExtendedProps extends InputSwitchProps {
+  title: string;
+}
 
 /**
  * @description
@@ -15,12 +20,10 @@ import {
  * Encapsula o componente `InputSwitch` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
  */
-export const InputSwitch = (props: InputSwitchProps) => {
+export const InputSwitch = (props: ExtendedProps) => {
   return (
-    <div className="flex flex-column gap-2">
-      {props?.title && (
-        <label htmlFor={props.name}>{props.title}</label>
-      )}
+    <div className="drg-input-spacing">
+      <LabelInput title={props.title} name={props.name} />
       <PureInputSwitch {...props} />
     </div>
   );

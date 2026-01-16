@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import '../../../../theme.css'
 import { MultiSelect } from '../../../../components/Input/MultiSelect';
+import { useState } from 'react';
+import { InputNumber } from '../../../../components/Input/InputNumber';
 
 const cities = [
   { name: 'New York', code: 'NY' },
@@ -61,7 +63,7 @@ const meta = {
   title: 'Drogal Internal UI/DS/MultiSelect',
   component: MultiSelect,
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
@@ -330,7 +332,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: cities,
     optionLabel: 'name',
     placeholder: 'Select Cities',
@@ -340,7 +348,12 @@ export const Primary: Story = {
 };
 
 export const WithFilter: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Countries',
     options: countries,
     optionLabel: 'name',
     filter: true,
@@ -352,7 +365,12 @@ export const WithFilter: Story = {
 };
 
 export const ChipDisplay: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: cities,
     optionLabel: 'name',
     placeholder: 'Select Cities',
@@ -362,7 +380,12 @@ export const ChipDisplay: Story = {
 };
 
 export const GroupedItems: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: groupedCities,
     optionLabel: 'label',
     optionGroupLabel: 'label',
@@ -374,6 +397,10 @@ export const GroupedItems: Story = {
 };
 
 export const WithTitle: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
     title: 'Select Cities',
     options: cities,
@@ -385,7 +412,12 @@ export const WithTitle: Story = {
 };
 
 export const Disabled: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: cities,
     optionLabel: 'name',
     placeholder: 'Select Cities',
@@ -395,7 +427,12 @@ export const Disabled: Story = {
 };
 
 export const WithClearIcon: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: cities,
     optionLabel: 'name',
     placeholder: 'Select Cities',
@@ -406,7 +443,12 @@ export const WithClearIcon: Story = {
 };
 
 export const WithMaxLabels: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Countries',
     options: countries,
     optionLabel: 'name',
     placeholder: 'Select Countries',
@@ -417,22 +459,38 @@ export const WithMaxLabels: Story = {
 };
 
 export const VirtualScroll: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    const [virtualScrollerValues, setVirtualScrollerValues] = useState<number>(5);
+    return (
+      <>
+        <InputNumber size={50} title='virtualScroller:' value={virtualScrollerValues} onChange={(e) => setVirtualScrollerValues(e.value || 5)} />
+        <MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} virtualScrollerOptions={{ itemSize: virtualScrollerValues }} />
+      </>
+    );
+  },
   args: {
-    options: Array.from({ length: 10000 }).map((_, i) => ({ 
-      name: `Item ${i + 1}`, 
-      code: `ITEM${i + 1}` 
+    title: 'Select Items',
+    options: Array.from({ length: 10000 }).map((_, i) => ({
+      name: `Item ${i + 1}`,
+      code: `ITEM${i + 1}`
     })),
     optionLabel: 'name',
     placeholder: 'Select Items',
     filter: true,
-    virtualScrollerOptions: { itemSize: 38 },
+    virtualScrollerOptions: { itemSize: 5 },
     maxSelectedLabels: 3,
     className: 'w-full md:w-20rem',
   },
 };
 
 export const CustomScrollHeight: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Countries',
     options: countries,
     optionLabel: 'name',
     placeholder: 'Select Countries',
@@ -443,7 +501,12 @@ export const CustomScrollHeight: Story = {
 };
 
 export const FixedPlaceholder: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: cities,
     optionLabel: 'name',
     placeholder: 'Cities',
@@ -454,7 +517,12 @@ export const FixedPlaceholder: Story = {
 };
 
 export const WithSelectAll: Story = {
+  render: (args) => {
+    const [values, setValues] = useState<string[]>([]);
+    return (<MultiSelect {...args} value={values} onChange={(e) => setValues(e.value)} />);
+  },
   args: {
+    title: 'Select Cities',
     options: cities,
     optionLabel: 'name',
     placeholder: 'Select Cities',

@@ -1,7 +1,12 @@
 import {
-    Password as PureInputPassword,
-    type PasswordProps
+  Password as PureInputPassword,
+  type PasswordProps
 } from "primereact/password";
+import LabelInput from "../../Label/LabelInput";
+
+interface ExtendedProps extends PasswordProps {
+  title: string;
+}
 
 /**
  * @description
@@ -15,13 +20,12 @@ import {
  * Encapsula o componente `Password` do PrimeReact,
  * mantendo total compatibilidade com suas props originais.
  */
-export const InputPassword = (props: PasswordProps) => {
+export const InputPassword = (props: ExtendedProps) => {
   return (
-    <div className="flex flex-column gap-2">
-      {props?.title && (
-        <label htmlFor={props.name}>{props.title}</label>
-      )}
+    <div className="drg-input-spacing">
+      <LabelInput title={props.title} name={props.name} />
       <PureInputPassword {...props} />
     </div>
   );
+
 };

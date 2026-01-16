@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './overview.css';
 import { Accordion } from '../../../components/Accordion';
 import { AccordionTab } from '../../../components/Accordion.AccordionTab';
@@ -11,6 +11,7 @@ import { Column } from '../../../components/Column';
 // import { Dialog } from '../../../components/Dialog';
 import { Editor } from '../../../components/Input/Editor';
 import { IconField } from '../../../components/Input/IconField';
+import { InputIcon } from '../../../components/Input/InputIcon';
 import { InputNumber } from '../../../components/Input/InputNumber';
 import { InputPassword } from '../../../components/Input/InputPassword';
 // import { InputSwitch } from '../../../components/InputSwitch';
@@ -24,8 +25,20 @@ import { TabMenu } from '../../../components/TabMenu';
 import { TabView } from '../../../components/TabView';
 import { TabPanel } from '../../../components/TabView.TabPanel';
 import EnumIcons from '../../../icons/EnumIcons';
+import Icon from '../../../components/Icon';
 
 export const Overview: React.FC = () => {
+  const [password, setPassword] = useState('');
+  const [strongPassword, setStrongPassword] = useState('');
+  const [noFeedback, setNoFeedback] = useState('');
+  const [togglePassword, setTogglePassword] = useState('');
+  const [strengthTest, setStrengthTest] = useState('');
+  const [disabledPassword, setDisabledPassword] = useState('senha123');
+  const [invalidPassword, setInvalidPassword] = useState('');
+  const [selectValue, setSelectValue] = useState<any>('Off');
+  const [cityValue, setCityValue] = useState<any>(null);
+  const [multipleValue, setMultipleValue] = useState<any>([]);
+  const [justifyValue, setJustifyValue] = useState<any>(null);
 
   return (
     <article>
@@ -56,6 +69,11 @@ export const Overview: React.FC = () => {
                 </p>
               </AccordionTab>
             </Accordion>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-accordion--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card" >
@@ -85,6 +103,11 @@ export const Overview: React.FC = () => {
                 <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/asiyajavayant.png" size="large" shape="circle" />
               </div>
             </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-avatar--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card" >
@@ -111,6 +134,11 @@ export const Overview: React.FC = () => {
                 <Badge value="99" size="xlarge" />
                 <Badge value="100+" severity="danger" size="xlarge" />
               </div>
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-badge--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
             </div>
           </div>
 
@@ -145,6 +173,11 @@ export const Overview: React.FC = () => {
                 <Button label="Disabled" disabled />
               </div>
             </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-button--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card" >
@@ -158,6 +191,11 @@ export const Overview: React.FC = () => {
                 hideOnRangeSelection />
               <Calendar title='Calendar' placeholder="Month & Year" showIcon monthNavigator yearNavigator yearRange="2000:2030" />
               <Calendar title='Calendar' placeholder="Inline calendar" inline />
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-calendar--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
             </div>
           </div>
 
@@ -181,6 +219,11 @@ export const Overview: React.FC = () => {
               <Column field="category" header="Category" sortable />
               <Column field="price" header="Price" sortable />
             </DataTable>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-datatable--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card" >
@@ -199,11 +242,40 @@ export const Overview: React.FC = () => {
               <InputText placeholder="Only integers" keyfilter="int" title="Integer Input" />
               <InputText placeholder="Invalid input" invalid title="Error Field" />
             </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-inputtext--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
             <h3>IconField</h3>
-            <IconField />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <IconField iconPosition="left">
+                <InputIcon>
+                  <Icon name={EnumIcons.Outlined.search} />
+                </InputIcon>
+                <InputText title="Search" placeholder="Search" />
+              </IconField>
+              <IconField iconPosition="right">
+                <InputIcon>
+                  <Icon name={EnumIcons.Outlined.mail} />
+                </InputIcon>
+                <InputText title="Email" placeholder="Email" />
+              </IconField>
+              <IconField iconPosition="left">
+                <InputIcon>
+                  <Icon name={EnumIcons.Outlined.person} />
+                </InputIcon>
+                <InputText title="Username" placeholder="Username" />
+              </IconField>
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-iconfield--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
@@ -281,11 +353,81 @@ export const Overview: React.FC = () => {
                 placeholder="Digite um número"
               />
             </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-inputnumber--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
             <h3>InputPassword</h3>
-            <InputPassword />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <InputPassword
+                title="Senha Básica"
+                placeholder="Digite sua senha"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <InputPassword
+                title="Com Medidor de Força"
+                placeholder="Digite uma senha forte"
+                name="strongPassword"
+                feedback={true}
+                value={strongPassword}
+                onChange={(e) => setStrongPassword(e.target.value)}
+              />
+              <InputPassword
+                title="Sem Medidor"
+                placeholder="Digite sua senha"
+                name="noFeedback"
+                feedback={false}
+                value={noFeedback}
+                onChange={(e) => setNoFeedback(e.target.value)}
+              />
+              <InputPassword
+                title="Toggle Mask"
+                placeholder="Senha com alternância"
+                name="togglePassword"
+                toggleMask
+                value={togglePassword}
+                onChange={(e) => setTogglePassword(e.target.value)}
+              />
+              <InputPassword
+                title="Fraca/Média/Forte"
+                placeholder="Teste a força"
+                name="strengthTest"
+                feedback={true}
+                promptLabel="Digite uma senha"
+                weakLabel="Fraca"
+                mediumLabel="Média"
+                strongLabel="Forte"
+                value={strengthTest}
+                onChange={(e) => setStrengthTest(e.target.value)}
+              />
+              <InputPassword
+                title="Desabilitado"
+                placeholder="Campo desabilitado"
+                name="disabled"
+                disabled
+                value={disabledPassword}
+                onChange={(e) => setDisabledPassword(e.target.value)}
+              />
+              <InputPassword
+                title="Inválido"
+                placeholder="Senha obrigatória"
+                name="invalid"
+                className="p-invalid"
+                value={invalidPassword}
+                onChange={(e) => setInvalidPassword(e.target.value)}
+              />
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-inputpassword--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           {/* <div className="component-card">
@@ -334,12 +476,18 @@ export const Overview: React.FC = () => {
                 rows={3}
               />
             </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-inputtextarea--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
             <h3>MultiSelect</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
               <MultiSelect
+                title="Basic"
                 options={[
                   { name: 'New York', code: 'NY' },
                   { name: 'Rome', code: 'RM' },
@@ -367,6 +515,7 @@ export const Overview: React.FC = () => {
                 maxSelectedLabels={2}
               />
               <MultiSelect
+                title="Chip Display"
                 options={[
                   { name: 'New York', code: 'NY' },
                   { name: 'Rome', code: 'RM' },
@@ -378,6 +527,7 @@ export const Overview: React.FC = () => {
                 display="chip"
               />
               <MultiSelect
+                title="Grouped Cities"
                 options={[
                   {
                     label: 'Germany',
@@ -400,6 +550,11 @@ export const Overview: React.FC = () => {
                 placeholder="Grouped Cities"
                 maxSelectedLabels={2}
               />
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-multiselect--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
             </div>
           </div>
 
@@ -433,16 +588,136 @@ export const Overview: React.FC = () => {
                 currentPageReportTemplate="{first} - {last} of {totalRecords}"
               />
             </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-paginator--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
             <h3>SelectButton</h3>
-            <SelectButton />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Basic</label>
+                <SelectButton
+                  value={selectValue}
+                  onChange={(e) => setSelectValue(e.value)}
+                  options={['Off', 'On']}
+                />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>With Objects</label>
+                <SelectButton
+                  value={cityValue}
+                  onChange={(e) => setCityValue(e.value)}
+                  options={[
+                    { name: 'New York', value: 'NY' },
+                    { name: 'Rome', value: 'RM' },
+                    { name: 'London', value: 'LDN' }
+                  ]}
+                  optionLabel="name"
+                />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Multiple</label>
+                <SelectButton
+                  value={multipleValue}
+                  onChange={(e) => setMultipleValue(e.value)}
+                  options={[
+                    { name: 'New York', value: 'NY' },
+                    { name: 'Rome', value: 'RM' },
+                    { name: 'London', value: 'LDN' }
+                  ]}
+                  optionLabel="name"
+                  multiple
+                />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>With Icons</label>
+                <SelectButton
+                  value={justifyValue}
+                  onChange={(e) => setJustifyValue(e.value)}
+                  options={[
+                    { icon: <Icon name={EnumIcons.Outlined.format_align_left} />, value: 'left' },
+                    { icon: <Icon name={EnumIcons.Outlined.format_align_center} />, value: 'center' },
+                    { icon: <Icon name={EnumIcons.Outlined.format_align_right} />, value: 'right' },
+                    { icon: <Icon name={EnumIcons.Outlined.format_align_justify} />, value: 'justify' }
+                  ]}
+                  optionLabel="icon"
+                />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Disabled</label>
+                <SelectButton
+                  options={['Off', 'On']}
+                  disabled
+                />
+              </div>
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-selectbutton--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
             <h3>Skeleton</h3>
-            <Skeleton />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%' }}>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Rectangle</label>
+                <Skeleton width="100%" height="4rem" />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Circle</label>
+                <Skeleton shape="circle" size="4rem" />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Card Layout</label>
+                <div style={{ border: '1px solid var(--surface-border)', borderRadius: '8px', padding: '1rem' }}>
+                  <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                    <Skeleton shape="circle" size="3rem" />
+                    <div style={{ flex: 1 }}>
+                      <Skeleton width="100%" height="1rem" className="mb-2" />
+                      <Skeleton width="75%" height="1rem" />
+                    </div>
+                  </div>
+                  <Skeleton width="100%" height="8rem" />
+                </div>
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>List Layout</label>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <Skeleton shape="circle" size="2.5rem" />
+                    <Skeleton width="100%" height="1rem" />
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <Skeleton shape="circle" size="2.5rem" />
+                    <Skeleton width="100%" height="1rem" />
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <Skeleton shape="circle" size="2.5rem" />
+                    <Skeleton width="100%" height="1rem" />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Text Lines</label>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <Skeleton width="100%" height="0.875rem" />
+                  <Skeleton width="95%" height="0.875rem" />
+                  <Skeleton width="90%" height="0.875rem" />
+                  <Skeleton width="85%" height="0.875rem" />
+                </div>
+              </div>
+            </div>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-skeleton--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
@@ -456,6 +731,11 @@ export const Overview: React.FC = () => {
               ]}
               activeIndex={0}
             />
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-tabmenu--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
@@ -483,11 +763,21 @@ export const Overview: React.FC = () => {
                 </p>
               </TabPanel>
             </TabView>
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-tabview--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
           <div className="component-card">
             <h3>Editor</h3>
             <Editor title="Rich Text Editor" placeholder="Start typing here..." />
+            <div className="component-card-footer">
+              <a href="../?path=/docs/drogal-internal-ui-ds-editor--docs" className="component-link" target="_parent">
+                Ver documentação <Icon name={EnumIcons.Outlined.arrow_forward_ios} />
+              </a>
+            </div>
           </div>
 
         </div>
