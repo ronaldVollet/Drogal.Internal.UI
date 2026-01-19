@@ -87,11 +87,13 @@ $inputTextFontSize: 1rem !default;
 $inputBg: $shade000 !default;
 $inputTextColor: $shade700 !default;
 $inputIconColor: $shade600 !default;
-$inputBorder: 2px solid $shade400 !default;
+$inputBorder: 1px solid $shade400 !default;
 $inputHoverBorderColor: $shade500 !default;
 $inputFocusBorderColor: $primaryLightColor !default;
 $inputErrorBorderColor: $errorColor !default;
-$inputPlaceholderTextColor: $shade600 !default;
+
+$inputPlaceholderTextColor: #cac6c6 !default;
+;
 $inputFilledBg: #f2f2f2 !default;
 $inputFilledHoverBg: $inputFilledBg !default;
 $inputFilledFocusBg: $inputFilledBg !default;
@@ -138,7 +140,7 @@ $passwordMediumBg: #ff922a !default;
 $passwordStrongBg: #8bae2c !default;
 
 //button
-$buttonPadding: 0.5rem 1rem !default;
+$buttonPadding: 0.54rem 1rem !default;
 $buttonIconOnlyWidth: 2.857rem !default;
 $buttonIconOnlyPadding: 0.5rem 0 !default;
 $buttonBg: $primaryColor !default;
