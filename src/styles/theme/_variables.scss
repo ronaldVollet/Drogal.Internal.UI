@@ -82,7 +82,7 @@ $actionIconHoverColor: $shade700 !default;
 $actionIconBorderRadius: 50% !default;
 
 //input field (e.g. inputtext, spinner, inputmask)
-$inputPadding: 0.5rem 0.75rem !default;
+$inputPadding: 0.5rem 1.05rem !default;
 $inputTextFontSize: 1rem !default;
 $inputBg: $shade000 !default;
 $inputTextColor: $shade700 !default;
@@ -93,7 +93,8 @@ $inputFocusBorderColor: $primaryLightColor !default;
 $inputErrorBorderColor: $errorColor !default;
 
 $inputPlaceholderTextColor: #cac6c6 !default;
-;
+$inputPlaceholderSize: $inputTextFontSize !default;
+
 $inputFilledBg: #f2f2f2 !default;
 $inputFilledHoverBg: $inputFilledBg !default;
 $inputFilledFocusBg: $inputFilledBg !default;

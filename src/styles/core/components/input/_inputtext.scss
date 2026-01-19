@@ -36,12 +36,12 @@
     }
 
     &.p-inputtext-sm {
-        @include scaledFontSize($inputTextFontSize, $scaleSM);
+        @include scaledFontSize($inputTextFontSize, 1);
         @include scaledPadding($inputPadding, $scaleSM);
     }
 
     &.p-inputtext-lg {
-        @include scaledFontSize($inputTextFontSize, $scaleLG);
+        @include scaledFontSize($inputTextFontSize, 1);
         @include scaledPadding($inputPadding, $scaleLG);
     }
 }
@@ -49,6 +49,7 @@
 .p-float-label>label {
     left: nth($inputPadding, 2);
     color: $inputPlaceholderTextColor;
+    font-size: $inputPlaceholderSize;
     transition-duration: $transitionDuration;
 }
 
@@ -72,6 +73,7 @@
 
 @include placeholder {
     color: $inputPlaceholderTextColor;
+    font-size: $inputPlaceholderSize;
 }
 
 .p-input-filled {
@@ -90,14 +92,14 @@
 
 .p-inputtext-sm {
     .p-inputtext {
-        @include scaledFontSize($inputTextFontSize, $scaleSM);
+        @include scaledFontSize($inputTextFontSize, 1);
         @include scaledPadding($inputPadding, $scaleSM);
     }
 }
 
 .p-inputtext-lg {
     .p-inputtext {
-        @include scaledFontSize($inputTextFontSize, $scaleLG);
+        @include scaledFontSize($inputTextFontSize, 1);
         @include scaledPadding($inputPadding, $scaleLG);
     }
 }

@@ -138,6 +138,7 @@ input.p-dropdown-label {
 
         &.p-placeholder {
             color: $inputPlaceholderTextColor;
+            font-size: $inputPlaceholderSize;
         }
 
         &:focus,
